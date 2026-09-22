@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IceSentinel — Live Console</title>
+<title>BD_Coolbot — Live Console</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><text y=%2220%22 font-size=%2220%22>❄️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,7 +206,7 @@
   <div class="brand">
     <svg class="brand-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/></svg>
     <div class="brand-text">
-      <span class="brand-name">IceSentinel</span>
+      <span class="brand-name">BD_Coolbot</span>
       <span class="brand-sub">AC manipulator console</span>
     </div>
     <span class="conn-dot" id="conn-dot" title="Connection status"></span>
@@ -451,7 +451,7 @@
 
 </main>
 
-<footer>IceSentinel Console · connected to your Supabase project</footer>
+<footer>BD_Coolbot Console · connected to your Supabase project</footer>
 
 <script>
 // ============================================================
@@ -759,7 +759,7 @@ document.getElementById('export-csv').addEventListener('click', async ()=>{
     const blob = new Blob([csv], {type:'text/csv'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url; a.download = `icesentinel-readings-${range}.csv`; a.click();
+    a.href = url; a.download = `BD_Coolbot-readings-${range}.csv`; a.click();
     URL.revokeObjectURL(url);
   }catch(e){
     console.error(e);
@@ -946,7 +946,7 @@ document.getElementById('save-location').addEventListener('click', async ()=>{
 // REALTIME
 // ============================================================
 function subscribeRealtime(){
-  sb.channel('icesentinel-live')
+  sb.channel('BD_Coolbot-live')
     .on('postgres_changes', { event:'UPDATE', schema:'public', table:'devices', filter:`id=eq.${DEVICE_ID}` }, payload=>{
       renderStatus(payload.new);
     })
